@@ -2,7 +2,7 @@
     "version": "1.0.0",
     "summary": "Elman - Pacman Clone",
     "repository": "https://github.com/abadi199/elman.git",
-    "license": "BSD3",
+    "license": "Apache License v2.0",
     "source-directories": [
         "src"
     ],
