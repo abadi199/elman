@@ -1,7 +1,8 @@
 module Assets.Pacman exposing (pacman)
 
 import Svg exposing (Svg, path)
-import Svg.Attributes exposing (fill, cx, cy, r, d)
+import Svg.Attributes exposing (fill, cx, cy, r, d, transform)
+import Model
 
 
 angle : Float
@@ -19,8 +20,8 @@ mouthSpeed =
     300
 
 
-pacman : Float -> Bool -> Svg msg
-pacman time move =
+pacman : Float -> Bool -> Model.Direction -> Svg msg
+pacman time move direction =
     let
         mouthAngle =
             let
@@ -36,10 +37,15 @@ pacman time move =
                     else
                         (toFloat (mouthSpeed - mod) / halfSpeed) * angle
             in
-                if move then
-                    moveAngle
-                else
-                    angle
+                case ( move, moveAngle ) of
+                    ( True, 0 ) ->
+                        0.01
+
+                    ( True, _ ) ->
+                        moveAngle
+
+                    ( False, _ ) ->
+                        angle
 
         startX =
             toString <| radius + (radius * cos mouthAngle)
@@ -52,9 +58,24 @@ pacman time move =
 
         endY =
             toString <| radius + (radius * sin mouthAngle)
+
+        rotation =
+            case direction of
+                Model.Up ->
+                    -90
+
+                Model.Down ->
+                    90
+
+                Model.Left ->
+                    180
+
+                Model.Right ->
+                    0
     in
         path
             [ fill "#ffcc00"
+            , transform <| "rotate(" ++ toString rotation ++ " " ++ toString radius ++ " " ++ toString radius ++ ")"
             , d <|
                 "M"
                     ++ startX
