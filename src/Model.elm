@@ -5,8 +5,19 @@ module Model
         , Direction(..)
         , Position
         , Hero
+        , Dimension
+        , TileSize
+        , Level
+        , Tile(..)
+        , Item(..)
         , frameConstant
+        , world
+        , width
+        , height
+        , tileSize
         )
+
+import Matrix exposing (Matrix)
 
 
 type alias Model =
@@ -15,8 +26,57 @@ type alias Model =
     }
 
 
+type alias Level =
+    Matrix Tile
+
+
+type Tile
+    = Wall
+    | Path Item
+
+
+type Item
+    = Dot
+    | Cherry
+    | Power
+
+
 type alias World =
-    { width : Int, height : Int }
+    { tileSize : TileSize
+    , level : Level
+    }
+
+
+world : Int -> Level -> World
+world tileSize level =
+    { tileSize = TileSize tileSize
+    , level = level
+    }
+
+
+width : World -> Int
+width world =
+    Matrix.width world.level * tileSize world
+
+
+height : World -> Int
+height world =
+    Matrix.height world.level * tileSize world
+
+
+tileSize : World -> Int
+tileSize world =
+    case world.tileSize of
+        TileSize tileSize ->
+            tileSize
+
+
+type Dimension
+    = Dimension Int Int
+
+
+type TileSize
+    = TileSize Int
 
 
 type alias Hero =
@@ -24,7 +84,6 @@ type alias Hero =
     , direction : Direction
     , position : Position
     , speed : Int
-    , radius : Int
     }
 
 
@@ -39,5 +98,6 @@ type Direction
     | Right
 
 
+frameConstant : Int
 frameConstant =
     6000

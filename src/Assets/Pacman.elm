@@ -15,47 +15,53 @@ mouthSpeed =
     20
 
 
-pacman : Float -> Model.Hero -> Svg msg
-pacman time hero =
+pacman : Float -> Model.World -> Model.Hero -> Svg msg
+pacman time world hero =
     let
+        tileSize =
+            Model.tileSize world
+
+        radius =
+            tileSize * 3 // 2
+
         mouthAngle =
             let
                 framesPerMouth =
-                    round (Model.frameConstant / toFloat mouthSpeed)
+                    Model.frameConstant // mouthSpeed
 
                 mod =
                     round time % framesPerMouth + 1
 
                 halfSpeed =
-                    toFloat framesPerMouth / 2
+                    framesPerMouth // 2
 
                 moveAngle =
-                    if mod < round halfSpeed then
-                        (toFloat mod / halfSpeed) * angle
+                    if mod < halfSpeed then
+                        (toFloat mod / toFloat halfSpeed) * angle
                     else
-                        (toFloat (framesPerMouth - mod) / halfSpeed) * angle
+                        ((toFloat framesPerMouth - toFloat mod) / toFloat halfSpeed) * angle
             in
                 case ( hero.move, moveAngle ) of
-                    ( True, 0 ) ->
-                        0.01
-
                     ( True, _ ) ->
-                        moveAngle
+                        if moveAngle < 0.05 then
+                            0.05
+                        else
+                            moveAngle
 
                     ( False, _ ) ->
                         angle
 
         startX =
-            toString <| hero.radius + round (toFloat hero.radius * cos mouthAngle)
+            toString <| radius + round (toFloat radius * cos mouthAngle)
 
         startY =
-            toString <| hero.radius - round (toFloat hero.radius * sin mouthAngle)
+            toString <| radius - round (toFloat radius * sin mouthAngle)
 
         endX =
             startX
 
         endY =
-            toString <| hero.radius + round (toFloat hero.radius * sin mouthAngle)
+            toString <| radius + round (toFloat radius * sin mouthAngle)
 
         rotation =
             case hero.direction of
@@ -72,7 +78,7 @@ pacman time hero =
                     0
 
         rotate =
-            "rotate(" ++ toString rotation ++ " " ++ toString hero.radius ++ " " ++ toString hero.radius ++ ")"
+            "rotate(" ++ toString rotation ++ " " ++ toString radius ++ " " ++ toString radius ++ ")"
 
         translate =
             "translate(" ++ toString hero.position.x ++ " " ++ toString hero.position.y ++ ")"
@@ -86,17 +92,17 @@ pacman time hero =
                     ++ ","
                     ++ startY
                     ++ " A "
-                    ++ toString hero.radius
+                    ++ toString radius
                     ++ ","
-                    ++ toString hero.radius
+                    ++ toString radius
                     ++ " 0 1,0 "
                     ++ endX
                     ++ ", "
                     ++ endY
                     ++ " L "
-                    ++ toString hero.radius
+                    ++ toString radius
                     ++ ", "
-                    ++ toString hero.radius
+                    ++ toString radius
                     ++ "Z"
             ]
             []

@@ -8,6 +8,7 @@ import View
 import Update
 import Html as H
 import Keyboard
+import Levels.Level1 as Level
 
 
 main : Program Never ( Time, Model ) Msg
@@ -23,7 +24,7 @@ main =
 init : ( ( Time, Model ), Cmd Msg )
 init =
     ( ( 0
-      , { world = { width = 1280, height = 720 }
+      , { world = Model.world 10 Level.level1
         , hero =
             { move = False
             , direction = Model.Left
@@ -32,7 +33,6 @@ init =
                 , y = 0
                 }
             , speed = 4
-            , radius = 20
             }
         }
       )
@@ -44,5 +44,5 @@ subscriptions : ( Time, Model ) -> Sub Msg
 subscriptions ( _, model ) =
     Sub.batch
         [ AnimationFrame.times Msg.TimeUpdated
-        , Keyboard.presses Msg.KeyPressed
+        , Keyboard.downs Msg.KeyPressed
         ]

@@ -35,16 +35,36 @@ moveHero time world hero =
             else
                 case hero.direction of
                     Model.Up ->
-                        { hero | position = { x = hero.position.x, y = hero.position.y - hero.speed } }
+                        { hero
+                            | position =
+                                { x = hero.position.x
+                                , y = hero.position.y - hero.speed
+                                }
+                        }
 
                     Model.Down ->
-                        { hero | position = { x = hero.position.x, y = hero.position.y + hero.speed } }
+                        { hero
+                            | position =
+                                { x = hero.position.x
+                                , y = hero.position.y + hero.speed
+                                }
+                        }
 
                     Model.Left ->
-                        { hero | position = { x = hero.position.x - hero.speed, y = hero.position.y } }
+                        { hero
+                            | position =
+                                { x = hero.position.x - hero.speed
+                                , y = hero.position.y
+                                }
+                        }
 
                     Model.Right ->
-                        { hero | position = { x = hero.position.x + hero.speed, y = hero.position.y } }
+                        { hero
+                            | position =
+                                { x = hero.position.x + hero.speed
+                                , y = hero.position.y
+                                }
+                        }
     in
         updatedHero
             |> checkBoundaries world
@@ -52,57 +72,73 @@ moveHero time world hero =
 
 checkBoundaries : Model.World -> Model.Hero -> Model.Hero
 checkBoundaries world hero =
-    if hero.position.x < 0 then
-        { hero
-            | position =
-                { x = world.width - hero.radius * 2
-                , y = hero.position.y
-                }
-        }
-    else if hero.position.y < 0 then
-        { hero
-            | position =
-                { x = hero.position.x
-                , y = world.height - hero.radius * 2
-                }
-        }
-    else if hero.position.x + hero.radius * 2 > world.width then
-        { hero
-            | position =
-                { x = 0
-                , y = hero.position.y
-                }
-        }
-    else if hero.position.y + hero.radius * 2 > world.height then
-        { hero
-            | position =
-                { x = hero.position.x
-                , y = 0
-                }
-        }
-    else
-        hero
+    let
+        width =
+            Model.width world
+
+        height =
+            Model.height world
+
+        tileSize =
+            Model.tileSize world
+    in
+        if hero.position.x < 0 then
+            { hero
+                | position =
+                    { x = width - tileSize
+                    , y = hero.position.y
+                    }
+            }
+        else if hero.position.y < 0 then
+            { hero
+                | position =
+                    { x = hero.position.x
+                    , y = height - tileSize
+                    }
+            }
+        else if hero.position.x + tileSize > width then
+            { hero
+                | position =
+                    { x = 0
+                    , y = hero.position.y
+                    }
+            }
+        else if hero.position.y + tileSize > height then
+            { hero
+                | position =
+                    { x = hero.position.x
+                    , y = 0
+                    }
+            }
+        else
+            hero
 
 
 changeDirection : Keyboard.KeyCode -> Time.Time -> Model -> ( ( Time.Time, Model ), Cmd Msg )
 changeDirection keyCode time model =
     let
-        updatedDirection =
+        ( updatedDirection, updatedMove ) =
             if keyCode == KeyCode.left then
-                Model.Left
+                ( Model.Left, True )
             else if keyCode == KeyCode.right then
-                Model.Right
+                ( Model.Right, True )
             else if keyCode == KeyCode.up then
-                Model.Up
+                ( Model.Up, True )
             else if keyCode == KeyCode.down then
-                Model.Down
+                ( Model.Down, True )
             else
-                model.hero.direction
+                ( model.hero.direction, model.hero.move )
 
         hero =
             model.hero
 
         updatedModel =
-            { model | hero = { hero | direction = updatedDirection, move = True } }
+            { model
+                | hero =
+                    { hero
+                        | direction = updatedDirection
+                        , move = updatedMove
+                    }
+            }
     in
         ( ( time, updatedModel ), Cmd.none )

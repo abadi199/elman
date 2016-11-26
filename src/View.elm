@@ -8,6 +8,9 @@ import Html.Attributes as H
 import Svg as S
 import Svg.Attributes as S exposing (style)
 import Assets.Pacman as Assets
+import Assets.Dot as Assets
+import Matrix
+import Array
 
 
 view : ( Time, Model ) -> Html Msg
@@ -20,7 +23,7 @@ view ( time, model ) =
             S.svg
                 [ S.width "100%"
                 , S.height "100%"
-                , S.viewBox <| "0 0 " ++ toString model.world.width ++ " " ++ toString model.world.height
+                , S.viewBox <| "0 0 " ++ (toString <| Model.width model.world) ++ " " ++ (toString <| Model.height model.world)
                 ]
 
         background =
@@ -29,6 +32,26 @@ view ( time, model ) =
         container
             [ viewPort
                 [ background
-                , Assets.pacman time model.hero
+                , level model.world
+                , Assets.pacman time model.world model.hero
                 ]
             ]
+
+
+level : Model.World -> Html Msg
+level world =
+    let
+        tileSize =
+            Model.tileSize world
+
+        toCoordinate ( ( col, row ), a ) =
+            ( ( col * tileSize, row * tileSize ), a )
+
+        tiles =
+            world.level
+                |> Matrix.toIndexedArray
+                |> Array.map toCoordinate
+                |> Array.map (Assets.dot world)
+                |> Array.toList
+    in
+        S.g [] tiles
