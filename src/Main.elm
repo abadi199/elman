@@ -23,7 +23,8 @@ main =
 init : ( ( Time, Model ), Cmd Msg )
 init =
     ( ( 0
-      , { hero =
+      , { world = { width = 1280, height = 720 }
+        , hero =
             { move = False
             , direction = Model.Left
             , position =
@@ -31,6 +32,7 @@ init =
                 , y = 0
                 }
             , speed = 4
+            , radius = 20
             }
         }
       )

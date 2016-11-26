@@ -18,7 +18,10 @@ view ( time, model ) =
 
         viewPort =
             S.svg
-                [ S.width "100%", S.height "100%", S.viewBox "0 0 1280 720" ]
+                [ S.width "100%"
+                , S.height "100%"
+                , S.viewBox <| "0 0 " ++ toString model.world.width ++ " " ++ toString model.world.height
+                ]
 
         background =
             S.rect [ S.x "0", S.y "0", S.width "100%", S.height "100%", S.fill "#000" ] []
@@ -26,9 +29,6 @@ view ( time, model ) =
         container
             [ viewPort
                 [ background
-                , Assets.pacman time
-                    model.hero.position
-                    model.hero.move
-                    model.hero.direction
+                , Assets.pacman time model.hero
                 ]
             ]

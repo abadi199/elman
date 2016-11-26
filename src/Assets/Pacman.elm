@@ -10,18 +10,13 @@ angle =
     degrees 40
 
 
-radius : Float
-radius =
-    20
-
-
 mouthSpeed : Int
 mouthSpeed =
     20
 
 
-pacman : Float -> Model.Position -> Bool -> Model.Direction -> Svg msg
-pacman time position move direction =
+pacman : Float -> Model.Hero -> Svg msg
+pacman time hero =
     let
         mouthAngle =
             let
@@ -40,7 +35,7 @@ pacman time position move direction =
                     else
                         (toFloat (framesPerMouth - mod) / halfSpeed) * angle
             in
-                case ( move, moveAngle ) of
+                case ( hero.move, moveAngle ) of
                     ( True, 0 ) ->
                         0.01
 
@@ -51,19 +46,19 @@ pacman time position move direction =
                         angle
 
         startX =
-            toString <| radius + (radius * cos mouthAngle)
+            toString <| hero.radius + round (toFloat hero.radius * cos mouthAngle)
 
         startY =
-            toString <| radius - (radius * sin mouthAngle)
+            toString <| hero.radius - round (toFloat hero.radius * sin mouthAngle)
 
         endX =
             startX
 
         endY =
-            toString <| radius + (radius * sin mouthAngle)
+            toString <| hero.radius + round (toFloat hero.radius * sin mouthAngle)
 
         rotation =
-            case direction of
+            case hero.direction of
                 Model.Up ->
                     -90
 
@@ -77,10 +72,10 @@ pacman time position move direction =
                     0
 
         rotate =
-            "rotate(" ++ toString rotation ++ " " ++ toString radius ++ " " ++ toString radius ++ ")"
+            "rotate(" ++ toString rotation ++ " " ++ toString hero.radius ++ " " ++ toString hero.radius ++ ")"
 
         translate =
-            "translate(" ++ toString position.x ++ " " ++ toString position.y ++ ")"
+            "translate(" ++ toString hero.position.x ++ " " ++ toString hero.position.y ++ ")"
     in
         path
             [ fill "#ffcc00"
@@ -91,17 +86,17 @@ pacman time position move direction =
                     ++ ","
                     ++ startY
                     ++ " A "
-                    ++ toString radius
+                    ++ toString hero.radius
                     ++ ","
-                    ++ toString radius
+                    ++ toString hero.radius
                     ++ " 0 1,0 "
                     ++ endX
                     ++ ", "
                     ++ endY
                     ++ " L "
-                    ++ toString radius
+                    ++ toString hero.radius
                     ++ ", "
-                    ++ toString radius
+                    ++ toString hero.radius
                     ++ "Z"
             ]
             []

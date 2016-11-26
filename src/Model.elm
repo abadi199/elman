@@ -1,8 +1,22 @@
-module Model exposing (Model, Direction(..), Position, Hero, frameConstant)
+module Model
+    exposing
+        ( Model
+        , World
+        , Direction(..)
+        , Position
+        , Hero
+        , frameConstant
+        )
 
 
 type alias Model =
-    { hero : Hero }
+    { world : World
+    , hero : Hero
+    }
+
+
+type alias World =
+    { width : Int, height : Int }
 
 
 type alias Hero =
@@ -10,6 +24,7 @@ type alias Hero =
     , direction : Direction
     , position : Position
     , speed : Int
+    , radius : Int
     }
 
 
