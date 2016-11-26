@@ -17,25 +17,28 @@ radius =
 
 mouthSpeed : Int
 mouthSpeed =
-    300
+    20
 
 
-pacman : Float -> Bool -> Model.Direction -> Svg msg
-pacman time move direction =
+pacman : Float -> Model.Position -> Bool -> Model.Direction -> Svg msg
+pacman time position move direction =
     let
         mouthAngle =
             let
+                framesPerMouth =
+                    round (Model.frameConstant / toFloat mouthSpeed)
+
                 mod =
-                    round time % mouthSpeed + 1
+                    round time % framesPerMouth + 1
 
                 halfSpeed =
-                    toFloat mouthSpeed / 2
+                    toFloat framesPerMouth / 2
 
                 moveAngle =
                     if mod < round halfSpeed then
                         (toFloat mod / halfSpeed) * angle
                     else
-                        (toFloat (mouthSpeed - mod) / halfSpeed) * angle
+                        (toFloat (framesPerMouth - mod) / halfSpeed) * angle
             in
                 case ( move, moveAngle ) of
                     ( True, 0 ) ->
@@ -72,10 +75,16 @@ pacman time move direction =
 
                 Model.Right ->
                     0
+
+        rotate =
+            "rotate(" ++ toString rotation ++ " " ++ toString radius ++ " " ++ toString radius ++ ")"
+
+        translate =
+            "translate(" ++ toString position.x ++ " " ++ toString position.y ++ ")"
     in
         path
             [ fill "#ffcc00"
-            , transform <| "rotate(" ++ toString rotation ++ " " ++ toString radius ++ " " ++ toString radius ++ ")"
+            , transform <| translate ++ " " ++ rotate
             , d <|
                 "M"
                     ++ startX

@@ -22,7 +22,20 @@ main =
 
 init : ( ( Time, Model ), Cmd Msg )
 init =
-    ( ( 0, { move = False, direction = Model.Left } ), Cmd.none )
+    ( ( 0
+      , { hero =
+            { move = False
+            , direction = Model.Left
+            , position =
+                { x = 0
+                , y = 0
+                }
+            , speed = 4
+            }
+        }
+      )
+    , Cmd.none
+    )
 
 
 subscriptions : ( Time, Model ) -> Sub Msg

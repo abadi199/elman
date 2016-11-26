@@ -19,7 +19,30 @@ update msg ( time, model ) =
 
 updateTime : Time.Time -> Model -> ( ( Time.Time, Model ), Cmd Msg )
 updateTime time model =
-    ( ( time, model ), Cmd.none )
+    let
+        updatedModel =
+            { model | hero = moveHero time model.hero }
+    in
+        ( ( time, updatedModel ), Cmd.none )
+
+
+moveHero : Time.Time -> Model.Hero -> Model.Hero
+moveHero time hero =
+    if not hero.move then
+        hero
+    else
+        case hero.direction of
+            Model.Up ->
+                { hero | position = { x = hero.position.x, y = hero.position.y - hero.speed } }
+
+            Model.Down ->
+                { hero | position = { x = hero.position.x, y = hero.position.y + hero.speed } }
+
+            Model.Left ->
+                { hero | position = { x = hero.position.x - hero.speed, y = hero.position.y } }
+
+            Model.Right ->
+                { hero | position = { x = hero.position.x + hero.speed, y = hero.position.y } }
 
 
 changeDirection : Keyboard.KeyCode -> Time.Time -> Model -> ( ( Time.Time, Model ), Cmd Msg )
@@ -37,7 +60,10 @@ changeDirection keyCode time model =
             else
                 Model.Left
 
+        hero =
+            model.hero
+
         updatedModel =
-            { model | direction = updatedDirection, move = True }
+            { model | hero = { hero | direction = updatedDirection, move = True } }
     in
         ( ( time, updatedModel ), Cmd.none )
