@@ -58,7 +58,7 @@ changeDirection keyCode time model =
             else if keyCode == KeyCode.down then
                 Model.Down
             else
-                Model.Left
+                model.hero.direction
 
         hero =
             model.hero
