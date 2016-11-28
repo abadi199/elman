@@ -24,7 +24,7 @@ main =
 init : ( ( Time, Model ), Cmd Msg )
 init =
     ( ( 0
-      , { world = Model.world 10 Level.level1
+      , { world = Model.world 30 Level.level1
         , hero =
             { move = False
             , direction = Model.Left

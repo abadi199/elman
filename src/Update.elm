@@ -79,13 +79,13 @@ checkBoundaries world hero =
         height =
             Model.height world
 
-        tileSize =
+        heroSize =
             Model.tileSize world
     in
         if hero.position.x < 0 then
             { hero
                 | position =
-                    { x = width - tileSize
+                    { x = width - heroSize
                     , y = hero.position.y
                     }
             }
@@ -93,17 +93,17 @@ checkBoundaries world hero =
             { hero
                 | position =
                     { x = hero.position.x
-                    , y = height - tileSize
+                    , y = height - heroSize
                     }
             }
-        else if hero.position.x + tileSize > width then
+        else if hero.position.x + heroSize > width then
             { hero
                 | position =
                     { x = 0
                     , y = hero.position.y
                     }
             }
-        else if hero.position.y + tileSize > height then
+        else if hero.position.y + heroSize > height then
             { hero
                 | position =
                     { x = hero.position.x

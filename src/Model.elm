@@ -8,8 +8,6 @@ module Model
         , Dimension
         , TileSize
         , Level
-        , Tile(..)
-        , Item(..)
         , frameConstant
         , world
         , width
@@ -18,6 +16,7 @@ module Model
         )
 
 import Matrix exposing (Matrix)
+import Model.Tile as Tile
 
 
 type alias Model =
@@ -27,18 +26,7 @@ type alias Model =
 
 
 type alias Level =
-    Matrix Tile
-
-
-type Tile
-    = Wall
-    | Path Item
-
-
-type Item
-    = Dot
-    | Cherry
-    | Power
+    Matrix Tile.Tile
 
 
 type alias World =

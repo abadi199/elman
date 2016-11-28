@@ -1,6 +1,4 @@
-<!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Main</title><style>html,head,body { padding:0; margin:0; }
-body { font-family: calibri, helvetica, arial, sans-serif; }</style><script type="text/javascript">
+
 (function() {
 'use strict';
 
@@ -136,6 +134,7 @@ function A9(fun, a, b, c, d, e, f, g, h, i)
     ? fun.func(a, b, c, d, e, f, g, h, i)
     : fun(a)(b)(c)(d)(e)(f)(g)(h)(i);
 }
+
 //import Native.List //
 
 var _elm_lang$core$Native_Array = function() {
@@ -1102,7 +1101,8 @@ return {
 	fromJSArray: fromJSArray
 };
 
-}();//import Native.Utils //
+}();
+//import Native.Utils //
 
 var _elm_lang$core$Native_Basics = function() {
 
@@ -1242,7 +1242,8 @@ return {
 	isInfinite: isInfinite
 };
 
-}();//import //
+}();
+//import //
 
 var _elm_lang$core$Native_Utils = function() {
 
@@ -1730,7 +1731,8 @@ return {
 	toString: toString
 };
 
-}();var _elm_lang$core$Basics$never = function (_p0) {
+}();
+var _elm_lang$core$Basics$never = function (_p0) {
 	never:
 	while (true) {
 		var _p1 = _p0;
@@ -1855,6 +1857,7 @@ var _elm_lang$core$Basics$LT = {ctor: 'LT'};
 var _elm_lang$core$Basics$JustOneMore = function (a) {
 	return {ctor: 'JustOneMore', _0: a};
 };
+
 var _elm_lang$core$Maybe$withDefault = F2(
 	function ($default, maybe) {
 		var _p0 = maybe;
@@ -1927,6 +1930,7 @@ var _elm_lang$core$Maybe$map5 = F6(
 			return _elm_lang$core$Maybe$Nothing;
 		}
 	});
+
 //import Native.Utils //
 
 var _elm_lang$core$Native_List = function() {
@@ -2063,7 +2067,8 @@ return {
 	sortWith: F2(sortWith)
 };
 
-}();var _elm_lang$core$List$sortWith = _elm_lang$core$Native_List.sortWith;
+}();
+var _elm_lang$core$List$sortWith = _elm_lang$core$Native_List.sortWith;
 var _elm_lang$core$List$sortBy = _elm_lang$core$Native_List.sortBy;
 var _elm_lang$core$List$sort = function (xs) {
 	return A2(_elm_lang$core$List$sortBy, _elm_lang$core$Basics$identity, xs);
@@ -2608,6 +2613,7 @@ var _elm_lang$core$List$indexedMap = F2(
 				_elm_lang$core$List$length(xs) - 1),
 			xs);
 	});
+
 var _elm_lang$core$Array$append = _elm_lang$core$Native_Array.append;
 var _elm_lang$core$Array$length = _elm_lang$core$Native_Array.length;
 var _elm_lang$core$Array$isEmpty = function (array) {
@@ -2662,6 +2668,7 @@ var _elm_lang$core$Array$repeat = F2(
 			_elm_lang$core$Basics$always(e));
 	});
 var _elm_lang$core$Array$Array = {ctor: 'Array'};
+
 //import Native.Utils //
 
 var _elm_lang$core$Native_Debug = function() {
@@ -2691,8 +2698,10 @@ return {
 	log: F2(log)
 };
 
-}();var _elm_lang$core$Debug$crash = _elm_lang$core$Native_Debug.crash;
+}();
+var _elm_lang$core$Debug$crash = _elm_lang$core$Native_Debug.crash;
 var _elm_lang$core$Debug$log = _elm_lang$core$Native_Debug.log;
+
 var _elm_lang$core$Result$toMaybe = function (result) {
 	var _p0 = result;
 	if (_p0.ctor === 'Ok') {
@@ -2834,6 +2843,7 @@ var _elm_lang$core$Result$fromMaybe = F2(
 			return _elm_lang$core$Result$Err(err);
 		}
 	});
+
 //import Maybe, Native.List, Native.Utils, Result //
 
 var _elm_lang$core$Native_String = function() {
@@ -3169,6 +3179,7 @@ return {
 };
 
 }();
+
 //import Native.Utils //
 
 var _elm_lang$core$Native_Char = function() {
@@ -3182,7 +3193,8 @@ return {
 	toLocaleLower: function(c) { return _elm_lang$core$Native_Utils.chr(c.toLocaleLowerCase()); }
 };
 
-}();var _elm_lang$core$Char$fromCode = _elm_lang$core$Native_Char.fromCode;
+}();
+var _elm_lang$core$Char$fromCode = _elm_lang$core$Native_Char.fromCode;
 var _elm_lang$core$Char$toCode = _elm_lang$core$Native_Char.toCode;
 var _elm_lang$core$Char$toLocaleLower = _elm_lang$core$Native_Char.toLocaleLower;
 var _elm_lang$core$Char$toLocaleUpper = _elm_lang$core$Native_Char.toLocaleUpper;
@@ -3224,6 +3236,7 @@ var _elm_lang$core$Char$isHexDigit = function ($char) {
 		_elm_lang$core$Native_Utils.chr('F'),
 		$char));
 };
+
 var _elm_lang$core$String$fromList = _elm_lang$core$Native_String.fromList;
 var _elm_lang$core$String$toList = _elm_lang$core$Native_String.toList;
 var _elm_lang$core$String$toFloat = _elm_lang$core$Native_String.toFloat;
@@ -3267,6 +3280,7 @@ var _elm_lang$core$String$fromChar = function ($char) {
 	return A2(_elm_lang$core$String$cons, $char, '');
 };
 var _elm_lang$core$String$isEmpty = _elm_lang$core$Native_String.isEmpty;
+
 var _elm_lang$core$Tuple$mapSecond = F2(
 	function (func, _p0) {
 		var _p1 = _p0;
@@ -3293,6 +3307,7 @@ var _elm_lang$core$Tuple$first = function (_p6) {
 	var _p7 = _p6;
 	return _p7._0;
 };
+
 //import //
 
 var _elm_lang$core$Native_Platform = function() {
@@ -3853,6 +3868,7 @@ return {
 };
 
 }();
+
 //import Native.Utils //
 
 var _elm_lang$core$Native_Scheduler = function() {
@@ -4133,7 +4149,8 @@ return {
 	rawSend: rawSend
 };
 
-}();var _elm_lang$core$Platform_Cmd$batch = _elm_lang$core$Native_Platform.batch;
+}();
+var _elm_lang$core$Platform_Cmd$batch = _elm_lang$core$Native_Platform.batch;
 var _elm_lang$core$Platform_Cmd$none = _elm_lang$core$Platform_Cmd$batch(
 	{ctor: '[]'});
 var _elm_lang$core$Platform_Cmd_ops = _elm_lang$core$Platform_Cmd_ops || {};
@@ -4147,11 +4164,13 @@ _elm_lang$core$Platform_Cmd_ops['!'] = F2(
 	});
 var _elm_lang$core$Platform_Cmd$map = _elm_lang$core$Native_Platform.map;
 var _elm_lang$core$Platform_Cmd$Cmd = {ctor: 'Cmd'};
+
 var _elm_lang$core$Platform_Sub$batch = _elm_lang$core$Native_Platform.batch;
 var _elm_lang$core$Platform_Sub$none = _elm_lang$core$Platform_Sub$batch(
 	{ctor: '[]'});
 var _elm_lang$core$Platform_Sub$map = _elm_lang$core$Native_Platform.map;
 var _elm_lang$core$Platform_Sub$Sub = {ctor: 'Sub'};
+
 var _elm_lang$core$Platform$hack = _elm_lang$core$Native_Scheduler.succeed;
 var _elm_lang$core$Platform$sendToSelf = _elm_lang$core$Native_Platform.sendToSelf;
 var _elm_lang$core$Platform$sendToApp = _elm_lang$core$Native_Platform.sendToApp;
@@ -4161,6 +4180,7 @@ var _elm_lang$core$Platform$Program = {ctor: 'Program'};
 var _elm_lang$core$Platform$Task = {ctor: 'Task'};
 var _elm_lang$core$Platform$ProcessId = {ctor: 'ProcessId'};
 var _elm_lang$core$Platform$Router = {ctor: 'Router'};
+
 var _eeue56$elm_flat_matrix$Matrix$filter = F2(
 	function (f, matrix) {
 		return A2(_elm_lang$core$Array$filter, f, matrix.data);
@@ -4424,6 +4444,7 @@ var _eeue56$elm_flat_matrix$Matrix$Matrix = F2(
 	function (a, b) {
 		return {size: a, data: b};
 	});
+
 var _elm_lang$core$Dict$foldr = F3(
 	function (f, acc, t) {
 		foldr:
@@ -5340,6 +5361,7 @@ var _elm_lang$core$Dict$diff = F2(
 			t1,
 			t2);
 	});
+
 //import Maybe, Native.Array, Native.List, Native.Utils, Result //
 
 var _elm_lang$core$Native_Json = function() {
@@ -5920,6 +5942,7 @@ return {
 };
 
 }();
+
 var _elm_lang$core$Json_Encode$list = _elm_lang$core$Native_Json.encodeList;
 var _elm_lang$core$Json_Encode$array = _elm_lang$core$Native_Json.encodeArray;
 var _elm_lang$core$Json_Encode$object = _elm_lang$core$Native_Json.encodeObject;
@@ -5930,6 +5953,7 @@ var _elm_lang$core$Json_Encode$int = _elm_lang$core$Native_Json.identity;
 var _elm_lang$core$Json_Encode$string = _elm_lang$core$Native_Json.identity;
 var _elm_lang$core$Json_Encode$encode = _elm_lang$core$Native_Json.encode;
 var _elm_lang$core$Json_Encode$Value = {ctor: 'Value'};
+
 var _elm_lang$core$Json_Decode$null = _elm_lang$core$Native_Json.decodeNull;
 var _elm_lang$core$Json_Decode$value = _elm_lang$core$Native_Json.decodePrimitive('value');
 var _elm_lang$core$Json_Decode$andThen = _elm_lang$core$Native_Json.andThen;
@@ -5992,6 +6016,7 @@ var _elm_lang$core$Json_Decode$int = _elm_lang$core$Native_Json.decodePrimitive(
 var _elm_lang$core$Json_Decode$bool = _elm_lang$core$Native_Json.decodePrimitive('bool');
 var _elm_lang$core$Json_Decode$string = _elm_lang$core$Native_Json.decodePrimitive('string');
 var _elm_lang$core$Json_Decode$Decoder = {ctor: 'Decoder'};
+
 var _elm_lang$virtual_dom$VirtualDom_Debug$wrap;
 var _elm_lang$virtual_dom$VirtualDom_Debug$wrapWithFlags;
 
@@ -7873,6 +7898,7 @@ return {
 };
 
 }();
+
 var _elm_lang$virtual_dom$VirtualDom$programWithFlags = function (impl) {
 	return A2(_elm_lang$virtual_dom$Native_VirtualDom.programWithFlags, _elm_lang$virtual_dom$VirtualDom_Debug$wrapWithFlags, impl);
 };
@@ -7903,6 +7929,7 @@ var _elm_lang$virtual_dom$VirtualDom$Options = F2(
 	});
 var _elm_lang$virtual_dom$VirtualDom$Node = {ctor: 'Node'};
 var _elm_lang$virtual_dom$VirtualDom$Property = {ctor: 'Property'};
+
 var _elm_lang$html$Html$programWithFlags = _elm_lang$virtual_dom$VirtualDom$programWithFlags;
 var _elm_lang$html$Html$program = _elm_lang$virtual_dom$VirtualDom$program;
 var _elm_lang$html$Html$beginnerProgram = function (_p0) {
@@ -8027,6 +8054,7 @@ var _elm_lang$html$Html$details = _elm_lang$html$Html$node('details');
 var _elm_lang$html$Html$summary = _elm_lang$html$Html$node('summary');
 var _elm_lang$html$Html$menuitem = _elm_lang$html$Html$node('menuitem');
 var _elm_lang$html$Html$menu = _elm_lang$html$Html$node('menu');
+
 var _elm_lang$html$Html_Attributes$map = _elm_lang$virtual_dom$VirtualDom$mapProperty;
 var _elm_lang$html$Html_Attributes$attribute = _elm_lang$virtual_dom$VirtualDom$attribute;
 var _elm_lang$html$Html_Attributes$contextmenu = function (value) {
@@ -8376,6 +8404,7 @@ var _elm_lang$html$Html_Attributes$classList = function (list) {
 				A2(_elm_lang$core$List$filter, _elm_lang$core$Tuple$second, list))));
 };
 var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
+
 var _elm_lang$animation_frame$Native_AnimationFrame = function()
 {
 
@@ -8398,6 +8427,7 @@ return {
 };
 
 }();
+
 var _elm_lang$core$Task$onError = _elm_lang$core$Native_Scheduler.onError;
 var _elm_lang$core$Task$andThen = _elm_lang$core$Native_Scheduler.andThen;
 var _elm_lang$core$Task$spawnCmd = F2(
@@ -8594,6 +8624,7 @@ var _elm_lang$core$Task$cmdMap = F2(
 			A2(_elm_lang$core$Task$map, tagger, _p11._0));
 	});
 _elm_lang$core$Native_Platform.effectManagers['Task'] = {pkg: 'elm-lang/core', init: _elm_lang$core$Task$init, onEffects: _elm_lang$core$Task$onEffects, onSelfMsg: _elm_lang$core$Task$onSelfMsg, tag: 'cmd', cmdMap: _elm_lang$core$Task$cmdMap};
+
 //import Native.Scheduler //
 
 var _elm_lang$core$Native_Time = function() {
@@ -8620,7 +8651,8 @@ return {
 	setInterval_: F2(setInterval_)
 };
 
-}();var _elm_lang$core$Time$setInterval = _elm_lang$core$Native_Time.setInterval_;
+}();
+var _elm_lang$core$Time$setInterval = _elm_lang$core$Native_Time.setInterval_;
 var _elm_lang$core$Time$spawnHelp = F3(
 	function (router, intervals, processes) {
 		var _p0 = intervals;
@@ -8807,9 +8839,11 @@ var _elm_lang$core$Time$subMap = F2(
 			});
 	});
 _elm_lang$core$Native_Platform.effectManagers['Time'] = {pkg: 'elm-lang/core', init: _elm_lang$core$Time$init, onEffects: _elm_lang$core$Time$onEffects, onSelfMsg: _elm_lang$core$Time$onSelfMsg, tag: 'sub', subMap: _elm_lang$core$Time$subMap};
+
 var _elm_lang$core$Process$kill = _elm_lang$core$Native_Scheduler.kill;
 var _elm_lang$core$Process$sleep = _elm_lang$core$Native_Scheduler.sleep;
 var _elm_lang$core$Process$spawn = _elm_lang$core$Native_Scheduler.spawn;
+
 var _elm_lang$animation_frame$AnimationFrame$rAF = _elm_lang$animation_frame$Native_AnimationFrame.create(
 	{ctor: '_Tuple0'});
 var _elm_lang$animation_frame$AnimationFrame$subscription = _elm_lang$core$Native_Platform.leaf('AnimationFrame');
@@ -8951,6 +8985,7 @@ var _elm_lang$animation_frame$AnimationFrame$subMap = F2(
 		}
 	});
 _elm_lang$core$Native_Platform.effectManagers['AnimationFrame'] = {pkg: 'elm-lang/animation-frame', init: _elm_lang$animation_frame$AnimationFrame$init, onEffects: _elm_lang$animation_frame$AnimationFrame$onEffects, onSelfMsg: _elm_lang$animation_frame$AnimationFrame$onSelfMsg, tag: 'sub', subMap: _elm_lang$animation_frame$AnimationFrame$subMap};
+
 var _elm_lang$dom$Native_Dom = function() {
 
 var fakeNode = {
@@ -9133,8 +9168,10 @@ return {
 };
 
 }();
+
 var _elm_lang$dom$Dom_LowLevel$onWindow = _elm_lang$dom$Native_Dom.onWindow;
 var _elm_lang$dom$Dom_LowLevel$onDocument = _elm_lang$dom$Native_Dom.onDocument;
+
 var _elm_lang$keyboard$Keyboard$onSelfMsg = F3(
 	function (router, _p0, state) {
 		var _p1 = _p0;
@@ -9303,6 +9340,7 @@ var _elm_lang$keyboard$Keyboard$subMap = F2(
 			});
 	});
 _elm_lang$core$Native_Platform.effectManagers['Keyboard'] = {pkg: 'elm-lang/keyboard', init: _elm_lang$keyboard$Keyboard$init, onEffects: _elm_lang$keyboard$Keyboard$onEffects, onSelfMsg: _elm_lang$keyboard$Keyboard$onSelfMsg, tag: 'sub', subMap: _elm_lang$keyboard$Keyboard$subMap};
+
 var _elm_lang$svg$Svg$map = _elm_lang$virtual_dom$VirtualDom$map;
 var _elm_lang$svg$Svg$text = _elm_lang$virtual_dom$VirtualDom$text;
 var _elm_lang$svg$Svg$svgNamespace = A2(
@@ -9389,6 +9427,7 @@ var _elm_lang$svg$Svg$filter = _elm_lang$svg$Svg$node('filter');
 var _elm_lang$svg$Svg$script = _elm_lang$svg$Svg$node('script');
 var _elm_lang$svg$Svg$style = _elm_lang$svg$Svg$node('style');
 var _elm_lang$svg$Svg$view = _elm_lang$svg$Svg$node('view');
+
 var _elm_lang$svg$Svg_Attributes$writingMode = _elm_lang$virtual_dom$VirtualDom$attribute('writing-mode');
 var _elm_lang$svg$Svg_Attributes$wordSpacing = _elm_lang$virtual_dom$VirtualDom$attribute('word-spacing');
 var _elm_lang$svg$Svg_Attributes$visibility = _elm_lang$virtual_dom$VirtualDom$attribute('visibility');
@@ -9642,6 +9681,38 @@ var _elm_lang$svg$Svg_Attributes$additive = _elm_lang$virtual_dom$VirtualDom$att
 var _elm_lang$svg$Svg_Attributes$accumulate = _elm_lang$virtual_dom$VirtualDom$attribute('accumulate');
 var _elm_lang$svg$Svg_Attributes$accelerate = _elm_lang$virtual_dom$VirtualDom$attribute('accelerate');
 var _elm_lang$svg$Svg_Attributes$accentHeight = _elm_lang$virtual_dom$VirtualDom$attribute('accent-height');
+
+var _zabadi199$elman$KeyCode$down = 40;
+var _zabadi199$elman$KeyCode$up = 38;
+var _zabadi199$elman$KeyCode$right = 39;
+var _zabadi199$elman$KeyCode$left = 37;
+
+var _zabadi199$elman$Model_Tile$Path = F2(
+	function (a, b) {
+		return {ctor: 'Path', _0: a, _1: b};
+	});
+var _zabadi199$elman$Model_Tile$Wall = {ctor: 'Wall'};
+var _zabadi199$elman$Model_Tile$URDC = {ctor: 'URDC'};
+var _zabadi199$elman$Model_Tile$ULDC = {ctor: 'ULDC'};
+var _zabadi199$elman$Model_Tile$LURDC = {ctor: 'LURDC'};
+var _zabadi199$elman$Model_Tile$UDC = {ctor: 'UDC'};
+var _zabadi199$elman$Model_Tile$LDC = {ctor: 'LDC'};
+var _zabadi199$elman$Model_Tile$DRC = {ctor: 'DRC'};
+var _zabadi199$elman$Model_Tile$URC = {ctor: 'URC'};
+var _zabadi199$elman$Model_Tile$LDRC = {ctor: 'LDRC'};
+var _zabadi199$elman$Model_Tile$LURC = {ctor: 'LURC'};
+var _zabadi199$elman$Model_Tile$LUC = {ctor: 'LUC'};
+var _zabadi199$elman$Model_Tile$LRC = {ctor: 'LRC'};
+var _zabadi199$elman$Model_Tile$Power = {ctor: 'Power'};
+var _zabadi199$elman$Model_Tile$Cherry = {ctor: 'Cherry'};
+var _zabadi199$elman$Model_Tile$Dot = {ctor: 'Dot'};
+
+var _zabadi199$elman$Levels_Level1$level1 = A3(
+	_eeue56$elm_flat_matrix$Matrix$repeat,
+	32,
+	18,
+	A2(_zabadi199$elman$Model_Tile$Path, _zabadi199$elman$Model_Tile$LRC, _zabadi199$elman$Model_Tile$Dot));
+
 var _zabadi199$elman$Model$frameConstant = 6000;
 var _zabadi199$elman$Model$tileSize = function (world) {
 	var _p0 = world.tileSize;
@@ -9669,13 +9740,6 @@ var _zabadi199$elman$Model$Position = F2(
 	function (a, b) {
 		return {x: a, y: b};
 	});
-var _zabadi199$elman$Model$Path = function (a) {
-	return {ctor: 'Path', _0: a};
-};
-var _zabadi199$elman$Model$Wall = {ctor: 'Wall'};
-var _zabadi199$elman$Model$Power = {ctor: 'Power'};
-var _zabadi199$elman$Model$Cherry = {ctor: 'Cherry'};
-var _zabadi199$elman$Model$Dot = {ctor: 'Dot'};
 var _zabadi199$elman$Model$Dimension = F2(
 	function (a, b) {
 		return {ctor: 'Dimension', _0: a, _1: b};
@@ -9694,38 +9758,17 @@ var _zabadi199$elman$Model$Right = {ctor: 'Right'};
 var _zabadi199$elman$Model$Left = {ctor: 'Left'};
 var _zabadi199$elman$Model$Down = {ctor: 'Down'};
 var _zabadi199$elman$Model$Up = {ctor: 'Up'};
-var _zabadi199$elman$Assets_Dot$radius = 1;
-var _zabadi199$elman$Assets_Dot$dot = F2(
-	function (world, _p0) {
-		var _p1 = _p0;
-		var center = (_zabadi199$elman$Model$tileSize(world) / 2) | 0;
-		return A2(
-			_elm_lang$svg$Svg$circle,
-			{
-				ctor: '::',
-				_0: _elm_lang$svg$Svg_Attributes$fill('#fff'),
-				_1: {
-					ctor: '::',
-					_0: _elm_lang$svg$Svg_Attributes$cx(
-						_elm_lang$core$Basics$toString(_p1._0._0 + center)),
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$svg$Svg_Attributes$cy(
-							_elm_lang$core$Basics$toString(_p1._0._1 + center)),
-						_1: {
-							ctor: '::',
-							_0: _elm_lang$svg$Svg_Attributes$r(
-								_elm_lang$core$Basics$toString(_zabadi199$elman$Assets_Dot$radius)),
-							_1: {ctor: '[]'}
-						}
-					}
-				}
-			},
-			{ctor: '[]'});
-	});
-var _zabadi199$elman$Assets_Pacman$mouthSpeed = 20;
-var _zabadi199$elman$Assets_Pacman$angle = _elm_lang$core$Basics$degrees(40);
-var _zabadi199$elman$Assets_Pacman$pacman = F3(
+
+var _zabadi199$elman$Msg$KeyPressed = function (a) {
+	return {ctor: 'KeyPressed', _0: a};
+};
+var _zabadi199$elman$Msg$TimeUpdated = function (a) {
+	return {ctor: 'TimeUpdated', _0: a};
+};
+
+var _zabadi199$elman$View_Pacman$mouthSpeed = 20;
+var _zabadi199$elman$View_Pacman$angle = _elm_lang$core$Basics$degrees(40);
+var _zabadi199$elman$View_Pacman$pacman = F3(
 	function (time, world, hero) {
 		var translate = A2(
 			_elm_lang$core$Basics_ops['++'],
@@ -9754,22 +9797,22 @@ var _zabadi199$elman$Assets_Pacman$pacman = F3(
 			}
 		}();
 		var mouthAngle = function () {
-			var framesPerMouth = (_zabadi199$elman$Model$frameConstant / _zabadi199$elman$Assets_Pacman$mouthSpeed) | 0;
+			var framesPerMouth = (_zabadi199$elman$Model$frameConstant / _zabadi199$elman$View_Pacman$mouthSpeed) | 0;
 			var mod = A2(
 				_elm_lang$core$Basics_ops['%'],
 				_elm_lang$core$Basics$round(time),
 				framesPerMouth) + 1;
 			var halfSpeed = (framesPerMouth / 2) | 0;
-			var moveAngle = (_elm_lang$core$Native_Utils.cmp(mod, halfSpeed) < 0) ? ((_elm_lang$core$Basics$toFloat(mod) / _elm_lang$core$Basics$toFloat(halfSpeed)) * _zabadi199$elman$Assets_Pacman$angle) : (((_elm_lang$core$Basics$toFloat(framesPerMouth) - _elm_lang$core$Basics$toFloat(mod)) / _elm_lang$core$Basics$toFloat(halfSpeed)) * _zabadi199$elman$Assets_Pacman$angle);
+			var moveAngle = (_elm_lang$core$Native_Utils.cmp(mod, halfSpeed) < 0) ? ((_elm_lang$core$Basics$toFloat(mod) / _elm_lang$core$Basics$toFloat(halfSpeed)) * _zabadi199$elman$View_Pacman$angle) : (((_elm_lang$core$Basics$toFloat(framesPerMouth) - _elm_lang$core$Basics$toFloat(mod)) / _elm_lang$core$Basics$toFloat(halfSpeed)) * _zabadi199$elman$View_Pacman$angle);
 			var _p1 = {ctor: '_Tuple2', _0: hero.move, _1: moveAngle};
 			if (_p1._0 === true) {
 				return (_elm_lang$core$Native_Utils.cmp(moveAngle, 5.0e-2) < 0) ? 5.0e-2 : moveAngle;
 			} else {
-				return _zabadi199$elman$Assets_Pacman$angle;
+				return _zabadi199$elman$View_Pacman$angle;
 			}
 		}();
 		var tileSize = _zabadi199$elman$Model$tileSize(world);
-		var radius = ((tileSize * 3) / 2) | 0;
+		var radius = (tileSize / 2) | 0;
 		var startX = _elm_lang$core$Basics$toString(
 			radius + _elm_lang$core$Basics$round(
 				_elm_lang$core$Basics$toFloat(radius) * _elm_lang$core$Basics$cos(mouthAngle)));
@@ -9869,21 +9912,37 @@ var _zabadi199$elman$Assets_Pacman$pacman = F3(
 			},
 			{ctor: '[]'});
 	});
-var _zabadi199$elman$KeyCode$down = 40;
-var _zabadi199$elman$KeyCode$up = 38;
-var _zabadi199$elman$KeyCode$right = 39;
-var _zabadi199$elman$KeyCode$left = 37;
-var _zabadi199$elman$Levels_Level1$level1 = A3(
-	_eeue56$elm_flat_matrix$Matrix$repeat,
-	128,
-	72,
-	_zabadi199$elman$Model$Path(_zabadi199$elman$Model$Dot));
-var _zabadi199$elman$Msg$KeyPressed = function (a) {
-	return {ctor: 'KeyPressed', _0: a};
-};
-var _zabadi199$elman$Msg$TimeUpdated = function (a) {
-	return {ctor: 'TimeUpdated', _0: a};
-};
+
+var _zabadi199$elman$View_Dot$radius = 1;
+var _zabadi199$elman$View_Dot$dot = F2(
+	function (world, _p0) {
+		var _p1 = _p0;
+		var center = (_zabadi199$elman$Model$tileSize(world) / 2) | 0;
+		return A2(
+			_elm_lang$svg$Svg$circle,
+			{
+				ctor: '::',
+				_0: _elm_lang$svg$Svg_Attributes$fill('#fff'),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$svg$Svg_Attributes$cx(
+						_elm_lang$core$Basics$toString(_p1._0._0 + center)),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$svg$Svg_Attributes$cy(
+							_elm_lang$core$Basics$toString(_p1._0._1 + center)),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$svg$Svg_Attributes$r(
+								_elm_lang$core$Basics$toString(_zabadi199$elman$View_Dot$radius)),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			},
+			{ctor: '[]'});
+	});
+
 var _zabadi199$elman$View$level = function (world) {
 	var tileSize = _zabadi199$elman$Model$tileSize(world);
 	var toCoordinate = function (_p0) {
@@ -9897,7 +9956,7 @@ var _zabadi199$elman$View$level = function (world) {
 	var tiles = _elm_lang$core$Array$toList(
 		A2(
 			_elm_lang$core$Array$map,
-			_zabadi199$elman$Assets_Dot$dot(world),
+			_zabadi199$elman$View_Dot$dot(world),
 			A2(
 				_elm_lang$core$Array$map,
 				toCoordinate,
@@ -9966,10 +10025,10 @@ var _zabadi199$elman$View$view = function (_p2) {
 			_0: _elm_lang$html$Html_Attributes$style(
 				{
 					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
+					_0: {ctor: '_Tuple2', _0: 'width', _1: '100vw'},
 					_1: {
 						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
+						_0: {ctor: '_Tuple2', _0: 'height', _1: '100vh'},
 						_1: {
 							ctor: '::',
 							_0: {ctor: '_Tuple2', _0: 'background-color', _1: '#fff'},
@@ -9995,7 +10054,7 @@ var _zabadi199$elman$View$view = function (_p2) {
 						_0: _zabadi199$elman$View$level(_p4.world),
 						_1: {
 							ctor: '::',
-							_0: A3(_zabadi199$elman$Assets_Pacman$pacman, _p3._0, _p4.world, _p4.hero),
+							_0: A3(_zabadi199$elman$View_Pacman$pacman, _p3._0, _p4.world, _p4.hero),
 							_1: {ctor: '[]'}
 						}
 					}
@@ -10003,6 +10062,7 @@ var _zabadi199$elman$View$view = function (_p2) {
 			_1: {ctor: '[]'}
 		});
 };
+
 var _zabadi199$elman$Update$changeDirection = F3(
 	function (keyCode, time, model) {
 		var hero = model.hero;
@@ -10024,22 +10084,22 @@ var _zabadi199$elman$Update$changeDirection = F3(
 	});
 var _zabadi199$elman$Update$checkBoundaries = F2(
 	function (world, hero) {
-		var tileSize = _zabadi199$elman$Model$tileSize(world);
+		var heroSize = _zabadi199$elman$Model$tileSize(world);
 		var height = _zabadi199$elman$Model$height(world);
 		var width = _zabadi199$elman$Model$width(world);
 		return (_elm_lang$core$Native_Utils.cmp(hero.position.x, 0) < 0) ? _elm_lang$core$Native_Utils.update(
 			hero,
 			{
-				position: {x: width - tileSize, y: hero.position.y}
+				position: {x: width - heroSize, y: hero.position.y}
 			}) : ((_elm_lang$core$Native_Utils.cmp(hero.position.y, 0) < 0) ? _elm_lang$core$Native_Utils.update(
 			hero,
 			{
-				position: {x: hero.position.x, y: height - tileSize}
-			}) : ((_elm_lang$core$Native_Utils.cmp(hero.position.x + tileSize, width) > 0) ? _elm_lang$core$Native_Utils.update(
+				position: {x: hero.position.x, y: height - heroSize}
+			}) : ((_elm_lang$core$Native_Utils.cmp(hero.position.x + heroSize, width) > 0) ? _elm_lang$core$Native_Utils.update(
 			hero,
 			{
 				position: {x: 0, y: hero.position.y}
-			}) : ((_elm_lang$core$Native_Utils.cmp(hero.position.y + tileSize, height) > 0) ? _elm_lang$core$Native_Utils.update(
+			}) : ((_elm_lang$core$Native_Utils.cmp(hero.position.y + heroSize, height) > 0) ? _elm_lang$core$Native_Utils.update(
 			hero,
 			{
 				position: {x: hero.position.x, y: 0}
@@ -10106,6 +10166,7 @@ var _zabadi199$elman$Update$update = F2(
 			return A3(_zabadi199$elman$Update$changeDirection, _p4._0, _p3._0, _p5);
 		}
 	});
+
 var _zabadi199$elman$Main$subscriptions = function (_p0) {
 	var _p1 = _p0;
 	return _elm_lang$core$Platform_Sub$batch(
@@ -10125,7 +10186,7 @@ var _zabadi199$elman$Main$init = {
 		ctor: '_Tuple2',
 		_0: 0,
 		_1: {
-			world: A2(_zabadi199$elman$Model$world, 10, _zabadi199$elman$Levels_Level1$level1),
+			world: A2(_zabadi199$elman$Model$world, 30, _zabadi199$elman$Levels_Level1$level1),
 			hero: {
 				move: false,
 				direction: _zabadi199$elman$Model$Left,
@@ -10138,6 +10199,7 @@ var _zabadi199$elman$Main$init = {
 };
 var _zabadi199$elman$Main$main = _elm_lang$html$Html$program(
 	{init: _zabadi199$elman$Main$init, view: _zabadi199$elman$View$view, update: _zabadi199$elman$Update$update, subscriptions: _zabadi199$elman$Main$subscriptions})();
+
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};
 if (typeof _zabadi199$elman$Main$main !== 'undefined') {
@@ -10173,4 +10235,4 @@ for (var publicModule in Elm)
 }
 
 }).call(this);
-</script></head><body><script type="text/javascript">Elm.Main.fullscreen()</script></body></html>
+

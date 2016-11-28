@@ -7,8 +7,8 @@ import Html as H exposing (Html)
 import Html.Attributes as H
 import Svg as S
 import Svg.Attributes as S exposing (style)
-import Assets.Pacman as Assets
-import Assets.Dot as Assets
+import View.Pacman as View
+import View.Dot as View
 import Matrix
 import Array
 
@@ -17,7 +17,7 @@ view : ( Time, Model ) -> Html Msg
 view ( time, model ) =
     let
         container =
-            H.div [ H.style [ ( "width", "100%" ), ( "height", "100%" ), ( "background-color", "#fff" ), ( "overflow", "hidden" ) ] ]
+            H.div [ H.style [ ( "width", "100vw" ), ( "height", "100vh" ), ( "background-color", "#fff" ), ( "overflow", "hidden" ) ] ]
 
         viewPort =
             S.svg
@@ -33,7 +33,7 @@ view ( time, model ) =
             [ viewPort
                 [ background
                 , level model.world
-                , Assets.pacman time model.world model.hero
+                , View.pacman time model.world model.hero
                 ]
             ]
 
@@ -51,7 +51,7 @@ level world =
             world.level
                 |> Matrix.toIndexedArray
                 |> Array.map toCoordinate
-                |> Array.map (Assets.dot world)
+                |> Array.map (View.dot world)
                 |> Array.toList
     in
         S.g [] tiles

@@ -1,4 +1,4 @@
-module Assets.Pacman exposing (pacman)
+module View.Pacman exposing (pacman)
 
 import Svg exposing (Svg, path)
 import Svg.Attributes exposing (fill, cx, cy, r, d, transform)
@@ -22,7 +22,7 @@ pacman time world hero =
             Model.tileSize world
 
         radius =
-            tileSize * 3 // 2
+            tileSize // 2
 
         mouthAngle =
             let
