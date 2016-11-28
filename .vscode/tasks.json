@@ -4,7 +4,7 @@
     "version": "0.1.0",
     "command": "elm-make",
     "isShellCommand": true,
-    "args": ["src/Main.elm", "--output", "dist/elm.js"],
+    "args": ["src/Main.elm", "--output", "docs/elm.js", "--yes"],
     "showOutput": "always",
     "echoCommand": true
 }
